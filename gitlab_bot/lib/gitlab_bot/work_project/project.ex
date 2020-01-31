@@ -5,7 +5,7 @@ defmodule GitlabBot.WorkProject.Project do
   schema "projects" do
     field :devgroup, :string
     field :name, :string
-
+    field :ding_push_url, :string
     timestamps()
   end
 

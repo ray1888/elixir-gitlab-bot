@@ -7,9 +7,8 @@ defmodule GitlabBot.Parser do
   if it comes from the database, an external API or others.
   """
 
-  def parse() do
+  def parse(msg, push_urls, users) do
     # case
-
 
   end
 

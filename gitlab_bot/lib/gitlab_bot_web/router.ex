@@ -15,14 +15,14 @@ defmodule GitlabBotWeb.Router do
   end
 
   scope "/", GitlabBotWeb do
-    pipe_through :api
-
+    pipe_through :browser
     get "/", PageController, :index
-    post "/gitlab-push", GitlabController, :convey
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GitlabBotWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", GitlabBotWeb do
+    pipe_through :api
+
+    post "/gitlab-push", GitlabController, :convey
+  end
 end
