@@ -6,9 +6,8 @@ defmodule GitlabBot.Devuser do
   alias GitlabBot.Repo
   alias GitlabBot.WorkProject.Devuser
 
-  def getByGroup(groupname) do
-    users = Repo.get_by(Devuser, groupname: groupname)
-    # users
+  def getByGroup(%{"assginee" => username}) do
+    Repo.get_by(Devuser, name: username)
   end
 
 end

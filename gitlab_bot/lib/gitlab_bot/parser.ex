@@ -8,7 +8,7 @@ defmodule GitlabBot.Parser do
   """
 
   def parse() do
-    case
+    # case
 
 
   end
