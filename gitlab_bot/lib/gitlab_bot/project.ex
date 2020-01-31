@@ -6,8 +6,8 @@ defmodule GitlabBot.Project do
   alias GitlabBot.Repo
   alias GitlabBot.WorkProject.Project
 
-  def get_info_by_name(%{"project_name" => name}) do
-    Repo.get_by(Project, name: name)
+  def get_info_by_name(%{"project" => project_data}) do
+    Repo.get_by(Project, name: project_data["name"])
   end
 
 end

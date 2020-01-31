@@ -10,7 +10,6 @@ defmodule GitlabBot do
   alias GitlabBot.Parser
   alias GitlabBot.Project
   alias GitlabBot.Sender
-  alias Phoenix.Logger
 
   @doc """
   total is three step
@@ -19,12 +18,22 @@ defmodule GitlabBot do
   3. send to different platform
   """
   def inform(msg) do
+      object_kind = msg["object_kind"]
       push_urls =  Project.get_info_by_name(msg)
+      case object_kind do
+        "push" ->
+          Parser.parse(msg, push_urls)
+          # |> sender.Send()
+        "tag_push" ->
+          Parser.parse(msg, push_urls)
+          # |> sender.Send()
+        "merge_request" ->
+          users = Devuser.getByGroup(msg)
+          # Parser.parse(msg, push_urls, users)
+          # |> sender.Send()
+          {:ok,"dsfads"}
+      end
       # IO.inspect project_info
-      users = Devuser.getByGroup(msg)
       # IO.inspect assignee
-      Parser.parse(msg, push_urls, users)
-      # |> sender.Send()
-      {:ok, "sadas"}
   end
 end
