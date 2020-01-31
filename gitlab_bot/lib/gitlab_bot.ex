@@ -17,17 +17,16 @@ defmodule GitlabBot do
   2. get the inform group and get the informer
   3. send to different platform
   """
-  def inform(msg) do
-      object_kind = msg["object_kind"]
+  def inform(event_type, msg) do
       push_urls =  Project.get_info_by_name(msg)
-      case object_kind do
-        "push" ->
+      case event_type do
+        ["Push Hook"] ->
           Parser.parse(msg, push_urls)
           # |> sender.Send()
-        "tag_push" ->
+        ["Tag Push Hook"]->
           Parser.parse(msg, push_urls)
           # |> sender.Send()
-        "merge_request" ->
+        ["Merge Request Hook"] ->
           users = Devuser.getByGroup(msg)
           # Parser.parse(msg, push_urls, users)
           # |> sender.Send()
