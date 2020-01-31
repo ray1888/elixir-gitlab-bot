@@ -17,6 +17,7 @@ defmodule GitlabBotWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/gitlab-push", GitlabController, :handle
   end
 
   # Other scopes may use custom stacks.

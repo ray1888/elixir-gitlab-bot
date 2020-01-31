@@ -5,8 +5,4 @@ defmodule GitlabBotWeb.PageController do
     render(conn, "index.html")
   end
 
-  def get_gitlab_msg(conn, _prarms) do
-
-  end
-
 end
