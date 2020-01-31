@@ -23,7 +23,7 @@ defmodule GitlabBot do
       # IO.inspect msg
       project_info =  Project.get_info_by_name(msg)
       IO.inspect project_info
-      assignee = Devuser.getByGroup(msg.assginee)
+      assignee = Devuser.getByGroup(msg)
       IO.inspect assignee
       # msg
       # {:ok, "testing"}
@@ -36,7 +36,7 @@ defmodule GitlabBot do
       # |> Devuser.getByGroup()
       # |> Parser.parse()
       # |> sender.Send()
-
+      {:ok, "get param"}
   end
 
 end
