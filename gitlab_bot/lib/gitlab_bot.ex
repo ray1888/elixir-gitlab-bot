@@ -28,11 +28,9 @@ defmodule GitlabBot do
           # |> sender.Send()
         ["Merge Request Hook"] ->
           users = Devuser.getByGroup(msg)
-          # Parser.parse(msg, push_urls, users)
+          Parser.parse(msg, push_urls, users)
           # |> sender.Send()
           {:ok,"dsfads"}
       end
-      # IO.inspect project_info
-      # IO.inspect assignee
   end
 end
