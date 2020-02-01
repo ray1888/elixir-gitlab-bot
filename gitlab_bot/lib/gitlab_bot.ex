@@ -18,7 +18,8 @@ defmodule GitlabBot do
   3. send to different platform
   """
   def inform(event_type, msg) do
-      push_urls =  Project.get_info_by_name(msg)
+      # push_urls =  Project.get_info_by_name(msg)
+      push_urls =  Project.get_repo_urls(msg)
       case event_type do
         ["Push Hook"] ->
           Parser.parse(msg, push_urls)

@@ -38,7 +38,6 @@ defmodule GitlabBot.Parser do
   end
 
   defp parse_platform_msg(msg) do
-    IO.inspect msg
     case msg do
       {"dingding", total_msg} ->
         case total_msg do
@@ -84,5 +83,4 @@ defmodule GitlabBot.Parser do
     |> Enum.map(&parse_platform_msg/1)
     {:ok, "dsfa"}
   end
-
 end
