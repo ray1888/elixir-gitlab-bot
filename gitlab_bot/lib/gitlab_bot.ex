@@ -32,6 +32,7 @@ defmodule GitlabBot do
           Parser.parse(msg, push_urls, users)
           # |> sender.Send()
           {:ok,"dsfads"}
+          {:error, "dfsa"}
       end
   end
 end
